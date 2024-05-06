@@ -25,13 +25,13 @@
 //     // Set exercise suggestions based on mood
 //     switch (mood) {
 //       case 'Relaxed':
-//         setExerciseSuggestions(['Yoga', 'Meditation', 'Deep Breathing Exercises']);
+//         setExerciseSuggestions(['Yoga', 'Meditation', 'Deep Breathing Exercises', 'Tai Chi', 'Pilates']);
 //         break;
 //       case 'Moderate':
-//         setExerciseSuggestions(['Walking', 'Mindfulness Practice', 'Listening to Calming Music']);
+//         setExerciseSuggestions(['Walking', 'Mindfulness Practice', 'Listening to Calming Music', 'Swimming', 'Cycling']);
 //         break;
 //       case 'Stressed':
-//         setExerciseSuggestions(['Jogging', 'Dancing', 'Stretching']);
+//         setExerciseSuggestions(['Jogging', 'Dancing', 'Stretching', 'Boxing', 'Kickboxing']);
 //         break;
 //       default:
 //         setExerciseSuggestions(['Exercise regularly and stay hydrated!']);
@@ -40,11 +40,8 @@
 //   };
 
 //   return (
-
 //     <div >
-
 //       <Navbar></Navbar>
-
 //       <div className="stressContainer">
 //         <h1>Stress Assessment & Mood Exercise Suggestions</h1>
 //         <div id="questionnaire">
@@ -89,19 +86,34 @@
 //           </ul>
 //         </div>
 //       </div>
-
 //     </div>
 //   );
 // }
 
 // export default questionnaire;
 
+
+
 import React, { useState } from 'react';
 import './questionnaire.css';
 import Navbar from '../../Components/NavigBar/navbar';
+import yoga from '../../assets/yoga.jpg'
+import meditation from '../../assets/meditation.jpg'
+import deep_breathing from '../../assets/deep_breathing.jpg'
+import tai_chi from '../../assets/tai_chi.jpg'
+import walking from '../../assets/walking.jpg'
+import swimming from '../../assets/swimming.jpg'
+import music from '../../assets/music.jpg'
+import cycling from '../../assets/cycling.jpg'
+import jogging from '../../assets/jogging.jpg'
+import dancing from '../../assets/dancing.jpg'
+import strtching from '../../assets/strtching.jpg'
+import boxing from '../../assets/boxing.jpg'
+import hydration from '../../assets/hydration.jpg'
 
-function questionnaire() {
 
+
+function Questionnaire() {
   const [stressLevel, setStressLevel] = useState(5);
   const [sleepQuality, setSleepQuality] = useState('fair');
   const [activityLevel, setActivityLevel] = useState('sometimes');
@@ -123,23 +135,38 @@ function questionnaire() {
     // Set exercise suggestions based on mood
     switch (mood) {
       case 'Relaxed':
-        setExerciseSuggestions(['Yoga', 'Meditation', 'Deep Breathing Exercises', 'Tai Chi', 'Pilates']);
+        setExerciseSuggestions([
+          { name: 'Yoga', image: {yoga} },
+          { name: 'Meditation', image: {meditation} },
+          { name: 'Deep Breathing Exercises', image: {deep_breathing} },
+          { name: 'Tai Chi', image: {tai_chi} }
+        ]);
         break;
       case 'Moderate':
-        setExerciseSuggestions(['Walking', 'Mindfulness Practice', 'Listening to Calming Music', 'Swimming', 'Cycling']);
+        setExerciseSuggestions([
+          { name: 'Walking', image: {walking} },
+          { name: 'Swimming', image: {swimming} },
+          { name: 'Listening to Calming Music', image: {music} },
+          { name: 'Cycling', image: {cycling} }
+        ]);
         break;
       case 'Stressed':
-        setExerciseSuggestions(['Jogging', 'Dancing', 'Stretching', 'Boxing', 'Kickboxing']);
+        setExerciseSuggestions([
+          { name: 'Jogging', image: {jogging} },
+          { name: 'Dancing', image: {dancing} },
+          { name: 'Stretching', image: {strtching} },
+          { name: 'Boxing', image: {boxing} },
+        ]);
         break;
       default:
-        setExerciseSuggestions(['Exercise regularly and stay hydrated!']);
+        setExerciseSuggestions([{name: 'Exercise regularly and stay hydrated!', image: {hydration}}]);
         break;
     }
   };
 
   return (
-    <div >
-      <Navbar></Navbar>
+    <div>
+      <Navbar />
       <div className="stressContainer">
         <h1>Stress Assessment & Mood Exercise Suggestions</h1>
         <div id="questionnaire">
@@ -177,15 +204,18 @@ function questionnaire() {
         <div id="moodResult" style={{ display: mood ? 'block' : 'none' }}>
           <h2>Your Mood: {mood}</h2>
           <h3>Exercise Suggestions:</h3>
-          <ul id="exerciseSuggestions">
+          <div className="exerciseImages">
             {exerciseSuggestions.map((exercise, index) => (
-              <li key={index}>{exercise}</li>
+              <div key={index} className="exerciseCard">
+                <img src={exercise.image} alt={exercise.name} />
+                <p>{exercise.name}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default questionnaire;
+export default Questionnaire;
