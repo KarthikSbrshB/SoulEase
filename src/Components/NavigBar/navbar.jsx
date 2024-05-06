@@ -25,6 +25,7 @@ const navbar = () => {
         <li><button className='btn'><Link to="/journal">Write Journal</Link></button></li>
         
         <li><button className='btn'><Link to = "/questionnaire">Questionnaire</Link></button></li>
+        <li><button className='btn'><Link to = "/progress">Progress</Link></button></li>
         {/* <li><a href="/questionnaire">Questionnaire</a></li> */}
       </ul>
     </nav>
