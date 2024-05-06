@@ -15,7 +15,7 @@ const navbar = () => {
   // },[])
 
   return (
-    // <nav className={`container 'dark-nav' : ''}`}>
+    
     <nav className="container">
       
       <div className="logo"><Link to="/"><h1>SoulEase</h1></Link></div>
@@ -25,8 +25,8 @@ const navbar = () => {
         <li><button className='btn'><Link to="/journal">Write Journal</Link></button></li>
         
         <li><button className='btn'><Link to = "/questionnaire">Questionnaire</Link></button></li>
-        <li><button className='btn'><Link to = "/progress">Progress</Link></button></li>
-        {/* <li><a href="/questionnaire">Questionnaire</a></li> */}
+        <li><button className='btn'><Link to = "/tracker">Progress</Link></button></li>
+        
       </ul>
     </nav>
   )

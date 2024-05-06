@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import './tracker.css';
 
 const Tracker = () => {
+  const [key, setKey] = useState(0); // Key to force remounting of the Line component
+
   const stressData = [65, 59, 80, 81, 56, 55, 40];
   const sleepData = [45, 67, 72, 68, 78, 80, 75];
   const activityData = [20, 30, 40, 35, 45, 50, 55];
@@ -76,12 +78,17 @@ const Tracker = () => {
     ]
   };
 
+  const resetChart = () => {
+    setKey(prevKey => prevKey + 1); // Increment key to force remounting
+  };
+
   return (
     <div className="progress-container">
       <h1>Stress Assessment & Mood Exercise Suggestions</h1>
-      <div className="chart-container">
+      <div className="chart-container" key={key}>
         <Line data={data} />
       </div>
+      <button onClick={resetChart}>Reset Chart</button>
     </div>
   );
 }

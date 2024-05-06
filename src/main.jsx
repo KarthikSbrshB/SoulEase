@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Questionnaire from './Pages/Questionnaire/questionnaire.jsx'
 import Journal from './Pages/Journal/journal.jsx'
+import Tracker from './Pages/Tracker/tracker.jsx'
 
 import './index.css'
 import {
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
     element: <Journal />,
   },
   {
-    path: "progress",
-    element: <Journal />,
+    path: "tracker",
+    element: <Tracker />,
   },
   
 ]);
