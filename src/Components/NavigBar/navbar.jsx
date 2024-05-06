@@ -18,7 +18,7 @@ const navbar = () => {
     // <nav className={`container 'dark-nav' : ''}`}>
     <nav className="container">
       
-      <div className="logo"><h1>SoulEase</h1></div>
+      <div className="logo"><Link to="/"><h1>SoulEase</h1></Link></div>
       <ul>
         <li><button className='btn' ><Link to="/">Home</Link></button></li>
         
