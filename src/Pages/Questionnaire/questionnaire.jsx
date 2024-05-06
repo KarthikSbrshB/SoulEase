@@ -101,7 +101,7 @@ import yoga from '../../assets/yoga.jpg'
 import meditation from '../../assets/meditation.jpg'
 import deep_breathing from '../../assets/deep_breathing.jpg'
 import tai_chi from '../../assets/tai_chi.jpg'
-import walking from '../../assets/walking.jpg'
+import walking from '../../assets/walking.png'
 import swimming from '../../assets/swimming.jpg'
 import music from '../../assets/music.jpg'
 import cycling from '../../assets/cycling.jpg'
@@ -136,30 +136,30 @@ function Questionnaire() {
     switch (mood) {
       case 'Relaxed':
         setExerciseSuggestions([
-          { name: 'Yoga', image: {yoga} },
-          { name: 'Meditation', image: {meditation} },
-          { name: 'Deep Breathing Exercises', image: {deep_breathing} },
-          { name: 'Tai Chi', image: {tai_chi} }
+          { name: 'Yoga', image:yoga},
+          { name: 'Meditation', image: meditation },
+          { name: 'Deep Breathing Exercises', image: deep_breathing },
+          { name: 'Tai Chi', image: tai_chi }
         ]);
         break;
       case 'Moderate':
         setExerciseSuggestions([
-          { name: 'Walking', image: {walking} },
-          { name: 'Swimming', image: {swimming} },
-          { name: 'Listening to Calming Music', image: {music} },
-          { name: 'Cycling', image: {cycling} }
+          { name: 'Walking', image: walking },
+          { name: 'Swimming', image: swimming },
+          { name: 'Listening to Calming Music', image: music },
+          { name: 'Cycling', image: cycling}
         ]);
         break;
       case 'Stressed':
         setExerciseSuggestions([
-          { name: 'Jogging', image: {jogging} },
-          { name: 'Dancing', image: {dancing} },
-          { name: 'Stretching', image: {strtching} },
-          { name: 'Boxing', image: {boxing} },
+          { name: 'Jogging', image: jogging },
+          { name: 'Dancing', image: dancing },
+          { name: 'Stretching', image: strtching },
+          { name: 'Boxing', image: boxing },
         ]);
         break;
       default:
-        setExerciseSuggestions([{name: 'Exercise regularly and stay hydrated!', image: {hydration}}]);
+        setExerciseSuggestions([{name: 'Exercise regularly and stay hydrated!', image: hydration}]);
         break;
     }
   };
